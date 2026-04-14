@@ -2,6 +2,7 @@ import pytest
 import requests
 
 BASE_URL = "http://localhost:8080"
+# 模拟登录获取的Token (由于目前处于开发初期，采用固定Token进行契约测试)
 TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mock_token"
 HEADERS = {
     "Content-Type": "application/json",
