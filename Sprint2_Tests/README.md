@@ -48,7 +48,7 @@
 
 **1. 安装必要依赖：**
 ```bash
-pip install pytest pytest-asyncio httpx aiosqlite
+pip install -r requirements.txt
 ```
 
 **2. 运行测试套件：**
