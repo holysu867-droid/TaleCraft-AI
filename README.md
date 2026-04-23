@@ -11,7 +11,6 @@
 
 在本次 Sprint 中，因前端 UI 仍在持续迭代打磨，为了实现敏捷开发中“前后端解耦与并行开发”的目标，我作为 Tech Lead 引入了 **接口契约驱动** 和 **TDD（测试驱动开发）** 的理念。通过编写严密的自动化集成测试脚本，成功验证了后端代码已 100% 达到 Product Owner (PO) 制定的验收标准，确保了主干代码的高质量合并。
 
----
 
 ## 🛠️ 技术栈与架构 (Tech Stack)
 
@@ -21,7 +20,6 @@
 *   **数据库隔离：** `aiosqlite` (内存型 SQLite，实现测试前后数据纯净无污染)
 *   **第三方隔离：** `unittest.mock.patch` (精准 Mock 云端 OSS 服务)
 
----
 
 ## 🚀 核心测试策略 (Testing Strategies)
 
@@ -32,7 +30,6 @@
 3.  **高级 Mock 技术：** 针对强依赖外部网络环境的 `/common/upload` 阿里云 OSS 上传接口，利用 Patch 技术拦截底层请求并伪造返回值，保障了 CI/CD 流水线在无网或未配置秘钥环境下的绝对稳定性。
 4.  **边界与越权拦截测试：** 覆盖了超大文件上传、非格式后缀、以及修改/删除“非本人拥有的项目 ID”等 403/404 边界场景。
 
----
 
 ## 📁 测试模块说明 (Modules)
 
@@ -43,7 +40,6 @@
 | `test_voice_sample.py`| 音频样本模块 | 用户私有音频的增删改查、越权操作阻断。 |
 | `test_common.py` | 通用上传模块 | **第三方 OSS Mock 拦截**、文件扩展名校验、大文件异常拦截。 |
 
----
 
 ## 💻 本地运行指南 (How to Run)
 
@@ -63,11 +59,10 @@ pip install pytest pytest-asyncio httpx aiosqlite
 pytest tests/ -s -v -W ignore
 ```
 
----
 
 ## 🌟 Tech Lead 审查与重构贡献 (Key Contributions)
 
-除了编写上述自动化测试脚本，我在本轮 Sprint 中主导解决了以下影响项目交付的严重架构级障碍：
+除了编写上述自动化测试脚本，我在本轮 Sprint 中主导解决了以下影响项目交付的架构级障碍：
 
 1.  **修复致命的 API 契约拼写 Bug：** 在代码走查中，拦截了 `ProjectListResponse` 模型中将 `data` 错写为 `date` 的严重失误，避免了前端解析崩溃。
 2.  **统一前后端全局响应规范：** 打回了 `Common` 模块中自创的冗余 `UploadResponse` (返回 `code=1`)，重构并强制全栈统一使用 `{"code": 200, "message": "..."}` 的 `ResponseModel` 规范。
