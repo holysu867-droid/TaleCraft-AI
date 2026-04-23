@@ -8,7 +8,7 @@
 
 ## 🎯 仓库简介 (Introduction)
 
-本仓库是 [TaleVoice 项目](https://github.com/MineGuYan/TaleVoice/tree/gyx) 在 Sprint 2 迭代中，针对后端核心微服务 API 编写的**全链路异步自动化测试代码库**。
+本仓库是团队 [TaleVoice 项目](https://github.com/MineGuYan/TaleVoice/tree/gyx) 在 Sprint 2 迭代中，针对后端核心微服务 API 编写的**全链路异步自动化测试代码库**。
 
 在本次 Sprint 中，因前端 UI 仍在持续迭代打磨，为了实现敏捷开发中“前后端解耦与并行开发”的目标，我作为 Tech Lead 引入了 **接口契约驱动** 和 **TDD（测试驱动开发）** 的理念。通过编写严密的自动化集成测试脚本，成功验证了后端代码已 100% 达到 Product Owner (PO) 制定的验收标准，确保了主干代码的高质量合并。
 
